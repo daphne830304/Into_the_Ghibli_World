@@ -1,0 +1,88 @@
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js" crossorigin></script>
+
+
+<div id=missing-coordinates>
+  <table id=data-table>
+
+  </table>
+</div>
+<div id='map'></div>
+<script>
+
+  //building table of missing coordinates
+
+  $.get('/admin/missing-coordinates', (response) => {
+    // const table = document.querySelector("#data-table")
+    const key = "AIzaSyB-33vlR6YV43rPhaQIU-vZAW0LZcS2qpc";
+    for (const loc of response) {
+
+      console.log(loc.real_location);
+      $.get('https://maps.googleapis.com/maps/api/geocode/json', { 'address': loc.real_location, "key": key },
+        (response) => {
+
+        lat = response['results'][0]['geometry']['location']['lat'];
+        lng = response['results'][0]['geometry']['location']['lng'];
+        address = response['results'][0]['formatted_address'];
+        place_id = response['results'][0]['place_id'];
+        console.log(place_id)
+        console.log(address)
+
+        $("#data-table").append(`<tr>
+            <td id = ${loc.location_id}>${loc.real_location}</td>
+            <td>${lat}</td>
+            <td>${lng}</td>
+            <td>${address}</td>
+            <td><button onclick="test_daph(${lat}, ${lng}, ${loc.location_id}, &quot;${JSON.stringify(address).slice(1, -1)}&quot;, &quot;${JSON.stringify(place_id).slice(1, -1)}&quot)">click me</button></td>
+            </tr>`);
+      });
+    }
+  });
+
+
+  function test_daph(lat, lng, id, address,place_id) {
+    console.log(lat)
+    console.log(lng)
+    console.log(id)
+    console.log(address)
+    console.log(place_id)
+    $.post("/admin/result", { lat: lat, lng: lng, id: id, address: address, place_id:place_id })
+  }
+
+
+        //  const q = $('td')
+        //  console.log(q)
+        //  const key = "AIzaSyB-33vlR6YV43rPhaQIU-vZAW0LZcS2qpc"
+
+        //  console.log(q.innerText)
+        //  const params = {"address":q.innerText,"key":key}
+
+
+  //        for (const td of q) {
+  //         $.get('https://maps.googleapis.com/maps/api/geocode/json',{'address':td.innerText,"key":key}, 
+  //         (response) =>{
+  //           console.log(td.innerText)
+  //           console.log(response['results'][0]['geometry']['location']['lat'])
+  //           console.log(response['results'][0]['geometry']['location']['lng'])
+  //           lat = response['results'][0]['geometry']['location']['lat']
+  //           lng = response['results'][0]['geometry']['location']['lng']
+
+  //        })
+
+  //  }
+  // })
+  //  const q = $('td')
+  //  console.log(q)
+  //  const params = {"address":"Dogo Onsen","key":"AIzaSyB-33vlR6YV43rPhaQIU-vZAW0LZcS2qpc"}
+  //  $.get('https://maps.googleapis.com/maps/api/geocode/json',params, (response) =>{
+  //    console.log(response['results'][0]['geometry']['location']['lat'])
+  //  }
+  //  )
+
+
+
+
+
+</script>

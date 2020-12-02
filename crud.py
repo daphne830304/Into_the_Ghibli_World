@@ -1,4 +1,4 @@
-from model import db, Movie, Location, connect_to_db, User, Savedmovies, Savedlocation
+from model import db, Movie, Location, connect_to_db, User, Savedmovies, Savedlocation, Addedlocation
 
 
 def create_movie(movie_id, title, description, director, producer, release_date, rt_score):
@@ -85,3 +85,54 @@ def create_saved_movies(movie_id, user_id):
     
     db.session.add(saved_movie)
     db.session.commit()
+
+def create_saved_locations(location_id, user_id):
+    user_id = int(user_id)
+    saved_location = Savedlocation(location_id=location_id,
+                                user_id = user_id)
+    
+    db.session.add(saved_location)
+    db.session.commit()
+
+def associated_locations(movie_id):
+    
+    movie = Movie.query.get(movie_id)
+    print(movie.location)
+
+    return movie.location
+
+def get_movie_id(title):
+    
+    movie = Movie.query.filter_by(title=title).first()
+    # print("________________________________________________this the movie_id",type(movie.movie_id))
+
+    return movie.movie_id
+
+def create_addedlocation(user_id, name, lat, lng,
+                        address, imgURL, place_id, movie_scene,
+                        movie_id, Description):
+
+    addlocation = Addedlocation(user_id=user_id,
+                           real_location=name,
+                           lat=lat,
+                           lng=lng,
+                           address=address,
+                           imgURL=imgURL,
+                           place_id=place_id,
+                           movie_scene=movie_scene,
+                           movie_id=movie_id,
+                           description=Description)
+    db.session.add(addlocation)
+    db.session.commit()
+
+def get_movie_title_from_movie_id(movie_id):
+
+    movie = Movie.query.filter_by(movie_id=movie_id).first()
+
+    return movie.title
+
+def get_location_name_from_location_id(location_id):
+
+    location = Location.query.filter_by(location_id=location_id).first()
+
+    return location.real_location

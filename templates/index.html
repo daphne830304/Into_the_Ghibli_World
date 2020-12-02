@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block body %}
+<header>
+  <!-- <h1>Project</h1> -->
+  <!-- <script 
+      async defer
+        type='text/jsx' src='static/js/map.jsx'>
+      </script> -->
+  <script async defer type='text/jsx' src='static/page/test.jsx'>
+  </script>
+  <script async defer type='text/jsx' src='static/page/Addedlocationcontainer.jsx'>
+  </script>
+  <script async defer type='text/jsx' src='static/page/UserProfile.jsx'>
+  </script>
+  <script async defer type='text/jsx' src='static/page/Addlocation.jsx'>
+  </script>
+  <script async defer type='text/jsx' src='static/page/IndexPage.jsx'>
+  </script>
+  <script async defer type='text/jsx' src='static/page/Login.jsx'>
+  </script>
+  <script async defer type='text/jsx' src='static/js/nearbyplaces.jsx'>
+  </script>
+  <script async defer type='text/jsx' src='static/js/InitMap_0.jsx'>
+  </script>
+  <script async defer type='text/jsx' src='static/page/GhibiliLocationsContainer.jsx'>
+  </script>
+  <script async defer type='text/jsx' src='static/page/GhibiliMoviesContainer.jsx'>
+  </script>
+  <script async defer type='text/jsx' src='static/page/App.jsx'>
+  </script>
+  
+
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-33vlR6YV43rPhaQIU-vZAW0LZcS2qpc&libraries=places">
+  </script>
+
+  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> -->
+  <style type="text/css">
+      /* #map {
+        height: 80%;
+        width:80%
+      } */
+    
+      /* Optional: Makes the sample page fill the window. */
+      /* html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      } */
+    </style>
+</header>
+
+<body style="background-color:#8f9297">
+  <!-- <div id='carousel'>
+  </div> -->
+  <!-- <div class="pac-card" id="pac-card"></div>
+  <div id="pac-container">
+    <input id="pac-input" type="text" placeholder="Enter a location" />
+  </div> -->
+ 
+    {% if session.get('logged_in_user_id',None)  %}
+    <div id='homepage-login' class='h1-homepage'>
+      <div class='homepage-link'><a style="color:#e4c2a5" href="/addlocation">ADD LOCATIONS</a></div>
+      <div class='homepage-link'><a style="color:#e4c2a5" href="/addedlocation">ADDED LOCATIONS</a></div>
+      <div class='homepage-link'><a style="color:#e4c2a5" href="/userprofile">USER PROFILE</a></div>
+      <div class='homepage-link'><a style="color:#e4c2a5" href="/logout">Log Out</a></div>
+    </div>
+    {% else %}
+    <div class='logout-link'><a style="color:#329ea1;font-size: x-large;" href="/login">Log In</a></div> 
+    {% endif %}
+  
+
+  <div id='map'>
+  </div>
+
+  <div id='root'>
+  </div>
+ 
+ 
+ 
+
+  
+  <!-- <form class="form-signin" method="POST">
+
+    <h2 class="form-signin-heading">Please Sign In</h2>
+  
+    <div class="form-group">
+      <label for="email-field" class="sr-only">Email Address</label>
+      <input type="email"
+             name="email"
+             class="form-control input-lg"
+             placeholder="Email Address"
+             required
+             autofocus>
+    </div>
+  
+    <div class="form-group">
+      <label for="password-field" class="sr-only">Password</label>
+      <input type="password"
+             name="password"
+             class="form-control input-lg"
+             placeholder="Password"
+             required>
+    </div>
+  
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In
+    </button>
+  
+  </form>
+ 
+   -->
+
+</body>
+{% endblock %}
