@@ -264,7 +264,7 @@
   /* right:0; */
   top:4%;
   width:50%;
-  margin-left:60%;
+  margin-left:50%;
 }
 
 .addtofav-button {
@@ -275,26 +275,19 @@
 
 .addlocationform{
   font-family: 'Mansalva';
-  font-size: 20px;
+  font-size: x-large;
   color:black;
-  width:50%;
+  /* width:30%; */
+  margin-left:10%;
 }
 
-.right-div {
-  width:25%;
-  float: right;
-  margin-top: 10%;
-  margin-left:0%;
-}
-.left-div {
-  /* width:20%; */
-  float: left;
-  /* margin-top: 10%; */
-  margin-left:3%;
+#find-location {
+  font-size: 15px;
+  background-color:#db7776;
 }
 
 .add-location-heading{
-  margin-top: 30%;
+  margin-top: 20%;
 }
 
 .long-input {

@@ -1,4 +1,4 @@
-const sfBayCoords = {
+let center_coord = {
     lat: 37.601773,
     lng: -122.202870
   };
@@ -14,13 +14,13 @@ function Addlocation() {
 
   React.useEffect(() => {
     newmap = new window.google.maps.Map(document.getElementById("map"), {
-      center: sfBayCoords,
+      center: center_coord,
       zoom: 5
     })
     updatemap(newmap)
   
     console.log('location map is updated')
-  }, [sfBayCoords])
+  }, [center_coord])
 
   
   const [allValues, setAllValues] = React.useState({location:'',movie_scene:'',Description:'',dropdownmovies:''})
@@ -64,12 +64,25 @@ function Addlocation() {
           $("#name").text(result.name)
           $("#types").text(result.types)
           $("#googlemapplaceid").text(result.place_id)
+          $('#addlocation-img').attr('src', result.photos[0].getUrl())
           const marker = new window.google.maps.Marker({
                           position:result.geometry.location,
                           map:newmap})
-                newmap.setCenter(marker.getPosition())
-          $('#addlocation-img').attr('src', result.photos[0].getUrl())
+          newmap.setCenter(marker.getPosition())
+          const infoWindow = new google.maps.InfoWindow()
+          const markerInfoContent = (`
+          <h3>${result.name}</h3>
+        `);
+      
+          marker.addListener('click', () => {
+    
+            infoWindow.setContent(markerInfoContent)
+            infoWindow.open(newmap, marker);
+            newmap.setCenter(marker.getPosition());
+          
+          })
         }
+        
         else if (status==='ZERO_RESULTS') {
           console.log('zero results')
         }
@@ -101,7 +114,6 @@ function Addlocation() {
               <button id='find-location' onClick= {lookuplocation}>find on map</button>
 
               <section id="display-coordinates" class='findmapsection'>
-                <h3>Coordinates</h3>
                 <dl>
                   <dt>Address</dt>
                   <dd id="address">Unknown</dd>
