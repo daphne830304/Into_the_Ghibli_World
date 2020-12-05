@@ -94,7 +94,7 @@ def admin_missing_coords():
                            "location_id":l.location_id})
 
 
-    print(loc)
+    # print(loc)
     
     return jsonify(location_list)
 
@@ -125,9 +125,9 @@ def resutls():
     # import pdb
     # pdb.set_trace()
     res = request.form
-    print(res['lat'])
-    print(res['lng'])
-    print(res['id'])
+    # print(res['lat'])
+    # print(res['lng'])
+    # print(res['id'])
 
     lat = res['lat']
     lng = res['lng']
@@ -138,10 +138,10 @@ def resutls():
     crud.update_coordinates(lat, lng, location_id,address,place_id)
 
     loc = Location.query.all()
-    for i in loc:
-        print(i.real_location)
-        print(i.lat)
-        print(i.lng)
+    # for i in loc:
+    #     print(i.real_location)
+    #     print(i.lat)
+    #     print(i.lng)
     # Location.update().values({"lat": lat, "lng":lng, "id":loc_id})
 
 
@@ -162,21 +162,21 @@ def getusers():
 @app.route("/api/add_location", methods=['POST'])
 def addlocation():
     res = request.form
-    print(f'______________________________________________________________this is the current log in user{session}')
-    print(session.get('logged_in_user_id',None))
-    print(session)
-    print(f'this is the response {res}')
-    print('8'*50)
-    print(res['name'])
-    print(res['lat'])
-    print(res['lng'])
-    print(res['address'])
-    print(res['imgURL'])
-    print(res['place_id'])
-    # print(res['allvalues[location]'])
-    print(res['allvalues[movie_scene]'])
-    print(res['allvalues[dropdownmovies]'])
-    print(res['allvalues[Description]'])
+    # print(f'______________________________________________________________this is the current log in user{session}')
+    # print(session.get('logged_in_user_id',None))
+    # print(session)
+    # print(f'this is the response {res}')
+    # print('8'*50)
+    # print(res['name'])
+    # print(res['lat'])
+    # print(res['lng'])
+    # print(res['address'])
+    # print(res['imgURL'])
+    # print(res['place_id'])
+    # # print(res['allvalues[location]'])
+    # print(res['allvalues[movie_scene]'])
+    # print(res['allvalues[dropdownmovies]'])
+    # print(res['allvalues[Description]'])
     crud.get_movie_id(res['allvalues[dropdownmovies]'])
 
     user_id = session.get('logged_in_user_id',None)
@@ -233,9 +233,9 @@ def getaddlocation():
 @app.route("/login", methods=['POST'])
 def adduser():
     res = request.form
-    print(res)
-    print(res['email'])
-    print(res['password'])
+    # print(res)
+    # print(res['email'])
+    # print(res['password'])
  
     
     email = res['email']
@@ -244,7 +244,7 @@ def adduser():
     all_users = crud.get_all_user()
     if email not in all_users:
         flash('email not matched in database')
-        print('emailed not matched in database')
+        # print('emailed not matched in database')
 
         return redirect('/login')
 
@@ -266,7 +266,7 @@ def adduser():
 @app.route("/logout")
 def process_logout():
     session.pop('logged_in_user_id')
-    print(session)
+    # print(session)
     flash('You have logged out')
     return redirect('/login')
 
@@ -292,8 +292,8 @@ def register_process():
 @app.route("/api/saved_movie",methods=['POST'])
 def process_saved_movies():
     res = request.form #{'movie_id':id}
-    print('movie_id is ' + res['movie_id'])
-    print(f"user id is :{session['logged_in_user_id']}")
+    # print('movie_id is ' + res['movie_id'])
+    # print(f"user id is :{session['logged_in_user_id']}")
     movie_id = res['movie_id']
     user_id = session['logged_in_user_id']
     crud.create_saved_movies(movie_id,user_id)
@@ -303,8 +303,8 @@ def process_saved_movies():
 @app.route("/api/saved_location",methods=['POST'])
 def process_saved_location():
     res = request.form 
-    print('location_id is ' + res['location_id'])
-    print(f"user id is :{session['logged_in_user_id']}")
+    # print('location_id is ' + res['location_id'])
+    # print(f"user id is :{session['logged_in_user_id']}")
     location_id = res['location_id']
     user_id = session['logged_in_user_id']
     crud.create_saved_locations(location_id,user_id)
@@ -315,8 +315,8 @@ def process_saved_location():
 def find_associated_locations():
 
     res = request.form
-    print(res['movie_id'])
-    print("_____________________________________________________________this is the response from the browser",res)
+    # print(res['movie_id'])
+    # print("_____________________________________________________________this is the response from the browser",res)
     
 
     associated_locations = crud.associated_locations(res['movie_id'])
@@ -342,7 +342,7 @@ def find_associated_locations():
 def get_user_data():
 
     user_id = session.get('logged_in_user_id',None)
-    print(user_id)
+    # print(user_id)
 
     user_fav_list= []
     savedmovies = Savedmovies.query.filter(Savedmovies.user_id==user_id).all()
@@ -351,14 +351,14 @@ def get_user_data():
     count = 0
     for m in savedmovies:
         title = crud.get_movie_title_from_movie_id(m.movie_id)
-        print('________________________________________________________________________',title,user_id)
+        # print('________________________________________________________________________',title,user_id)
         user_fav_list.append({'title': title,
                               'user_id': user_id,
                               'count':count})
         count += 1
     for l in savedlocations:
         location = crud.get_location_name_from_location_id(l.location_id)
-        print('_________________________________________________________________________',location, user_id)
+        # print('_________________________________________________________________________',location, user_id)
         user_fav_list.append({'location': location,
                               'user_id': user_id,
                               'count':count})
