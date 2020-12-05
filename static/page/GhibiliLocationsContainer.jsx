@@ -1,5 +1,5 @@
 function findonmap(lat, lng) {
-  newmap.setZoom(8);
+  newmap.setZoom(12);
   newmap.setCenter({ lat: Number(lat), lng: Number(lng) })
 }
 
@@ -104,6 +104,7 @@ function GhibiliLocationsContainer() {
     updateLocations(allLocations)
     const obyect = document.getElementById('#myInput')
     obyect.scrollIntoView(alignToTop); 
+    obyect.reset();
   }
 
 
@@ -178,7 +179,7 @@ function GhibiliLocationsContainer() {
     const obj_list = location_dict[obj]
     container_list.push(obj_list)
   }
-  console.log(container_list)
+  // console.log(container_list)
   //update the state, will cause a re-render + your locations will appear
   const coords_dict = {}
   const map_list = []

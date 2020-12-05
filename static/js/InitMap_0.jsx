@@ -64,15 +64,18 @@ function InitMap_0(props) {
 				  obj.scrollIntoView({behavior: 'smooth',block: "end", inline: "nearest"});}
         });
         const testobj = document.getElementById(`button-${marker.location_id}`)
-        if (testobj){
+        console.log(`button-${marker.location_id}`)
+        // if (testobj){
         testobj.addEventListener('click', ()=> {
           marker.setIcon("null");
           infoWindow.close();
-          console.log('hwllo')
+          infoWindow.setContent(markerInfoContent)
+          infoWindow.open(newmap, marker);
           marker.setIcon("http://maps.google.com/mapfiles/ms/icons/blue.png");
           infoWindow.setContent(markerInfoContent)
           infoWindow.open(newmap, marker);
-        })}
+        })
+        
       }
      
      

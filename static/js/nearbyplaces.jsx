@@ -56,15 +56,15 @@ function findnearbyaccomdations(lat, lng){
           infoWindow.open(newmap, marker)
         });
       }
-      newmap.setZoom(15);
+      newmap.setZoom(14);
       newmap.setCenter({lat:Number(lat), lng:Number(lng)})
 
-        console.log(res.features)
-        for (const loc of res.features){
-          console.log(loc.properties.kinds)
-          console.log(loc.properties.name)
-          console.log(loc.geometry.coordinates)
-        }
+        // console.log(res.features)
+        // for (const loc of res.features){
+        //   console.log(loc.properties.kinds)
+        //   console.log(loc.properties.name)
+        //   console.log(loc.geometry.coordinates)
+        // }
     })
 }
 
@@ -97,15 +97,15 @@ function findnearbyrestaurants(lat, lng){
           infoWindow.open(newmap, marker)
         });
       }
-      newmap.setZoom(15);
+      newmap.setZoom(14);
       newmap.setCenter({lat:Number(lat), lng:Number(lng)})
 
-        console.log(res.features)
-        for (const loc of res.features){
-          console.log(loc.properties.kinds)
-          console.log(loc.properties.name)
-          console.log(loc.geometry.coordinates)
-        }
+        // console.log(res.features)
+        // for (const loc of res.features){
+        //   console.log(loc.properties.kinds)
+        //   console.log(loc.properties.name)
+        //   console.log(loc.geometry.coordinates)
+        // }
     })
 }
 
