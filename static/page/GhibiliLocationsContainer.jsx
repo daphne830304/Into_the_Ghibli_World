@@ -97,14 +97,21 @@ function GhibiliLocationsContainer() {
 
   function filterTable() {
     const filterResults = locations.filter(location => location.title.toLowerCase().includes(searchTerm.toLowerCase()))
-    updateLocations(filterResults)
+    // console.log(filterResults)
+    if (filterResults.length) {
+      updateLocations(filterResults)}
+    else {
+      updateLocations(allLocations)
+      alert('No locations match with the keywords entered')
+    }
   }
 
   function resetLocation(){
     updateLocations(allLocations)
     const obyect = document.getElementById('#myInput')
+    obyect.value.reset();
     obyect.scrollIntoView(alignToTop); 
-    obyect.reset();
+    // obyect.reset();
   }
 
 
