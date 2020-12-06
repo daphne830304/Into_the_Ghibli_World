@@ -1,4 +1,3 @@
-"""Demonstration of Google Maps."""
 
 from jinja2 import StrictUndefined
 from flask import Flask, render_template, jsonify, send_from_directory, make_response, request,session,flash,redirect
