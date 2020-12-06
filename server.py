@@ -2,7 +2,7 @@
 
 from jinja2 import StrictUndefined
 from flask import Flask, render_template, jsonify, send_from_directory, make_response, request,session,flash,redirect
-from flask_debugtoolbar import DebugToolbarExtension
+# from flask_debugtoolbar import DebugToolbarExtension
 from model import connect_to_db, Movie, Location, User, Savedlocation, Savedmovies, Addedlocation
 import crud
 import os
@@ -370,7 +370,7 @@ def get_user_data():
 
 
 if __name__ == "__main__":
-    app.debug = False
+    # app.debug = False
     connect_to_db(app)
     # DebugToolbarExtension(app)
 
