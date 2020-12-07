@@ -259,12 +259,12 @@
   font-family: 'Mansalva';
   color:#db7776;
   position: fixed !important;
-  font-size: 20px;
+  font-size: 18px;
   z-index:100;
   /* right:0; */
   top:4%;
   width:50%;
-  margin-left:50%;
+  margin-left:45%;
 }
 
 .addtofav-button {
