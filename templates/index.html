@@ -62,16 +62,22 @@
   </div> -->
  
     {% if session.get('logged_in_user_id',None)  %}
-    <div id='homepage-login' class='h1-homepage'>
-      <div class='homepage-link'><a style="color:#e4c2a5" href="/addlocation">ADD LOCATIONS</a></div>
-      <div class='homepage-link'><a style="color:#e4c2a5" href="/addedlocation">ADDED LOCATIONS</a></div>
-      <div class='homepage-link'><a style="color:#e4c2a5" href="/userprofile">USER PROFILE</a></div>
-      <div class='homepage-link'><a style="color:#e4c2a5" href="/logout">Log Out</a></div>
+    <div id='homepage-login' class='homepage-link'>
+      <a style="color:#e4c2a5" href="/addlocation">ADD LOCATIONS</a>
+      <a style="color:#e4c2a5" href="/addedlocation">ADDED LOCATIONS</a>
+      <a style="color:#e4c2a5" href="/userprofile">USER PROFILE</a>
+      <a style="color:#e4c2a5" href="/logout">Log Out</a>
     </div>
     {% else %}
     <div class='logout-link'><a style="color:#329ea1;font-size: x-large;" href="/login">Log In</a></div> 
     {% endif %}
-  
+  <script>
+      $(window).resize(function () {
+        $('#homepage-login').width($(this).width());
+      });
+
+    
+  </script>
 
   <div id='map'>
   </div>
