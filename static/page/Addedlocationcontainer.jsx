@@ -1,7 +1,7 @@
 function AddedLocations(props) {
 
     return (
-      <div id={props.place_id}  className="ghibililocation-card">
+      <div id={props.location_id}  className="ghibililocation-card">
 
         <ReactBootstrap.Card  className='location-card' border="dark">  
         <ReactBootstrap.Card.Img variant="top" className='location-images' src={props.imgURL} />
@@ -83,7 +83,7 @@ function AddlocationContainer() {
           lat={addedlocation.lat}
           lng={addedlocation.lng}
           address = {addedlocation.address}
-          place_id = {addedlocation.place_id}
+          location_id = {addedlocation.place_id}
           addtofav = {addtofav}
         />
       );
