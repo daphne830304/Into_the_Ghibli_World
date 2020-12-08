@@ -257,6 +257,7 @@
 #homepage-login {
   /* display:block; */
   font-family: 'Mansalva';
+  color:#db7776;
   position: fixed !important;
   font-size: 18px;
   z-index:100;
@@ -264,7 +265,6 @@
   top:4%;
   width:100%;
   margin-left:50%;
-  /* margin-right:0%; */
 }
 
 .addtofav-button {
@@ -339,7 +339,7 @@
 
 .homepage-link{
   float:left;
-  /* padding-right: 3%; */
+  padding-right: 2%;
 }
 .logout-link{
   font-family: 'Mansalva';
