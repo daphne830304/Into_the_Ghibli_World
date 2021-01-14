@@ -44,12 +44,14 @@ https://www.intotheghibliworld.com
  This page contains all the movies of Studio Ghibli. Movies data is from Studio Ghibli Api and the movie poster is from IMDB. For simplicity, all data were stored into the
  database. As you hover onto the card, the movie details would show up. 
  
- ![moveis](static/img/loginpage.jpg)
+ ![moveis](static/img/moviepage.jpg)
  
  Locations Page
  This page contains locations information associated with various movies. Data was collected from different sources. 
  
- ![locaations](static/img/locationpage.jpg)
+ ![locations](static/img/locationpage.jpg)
+ 
+ TO be continued
  
  
 
