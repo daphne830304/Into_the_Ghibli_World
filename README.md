@@ -11,7 +11,6 @@ https://www.intotheghibliworld.com
 
 # Contents
   1. [Tech Stack](#Technology)
-  2. [Features](#Feature)
 
 
 # Technology 
@@ -30,6 +29,6 @@ https://www.intotheghibliworld.com
  - Google Maps
  - OpenTripMap Api
  
-# Features
+
   
 
