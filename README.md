@@ -11,7 +11,7 @@ https://www.intotheghibliworld.com
 
 # Contents
   1. [Tech Stack](#Technology)
-  2. [Features](#features)
+  2. [Features](#Features)
 
 
 # Technology 
@@ -30,7 +30,7 @@ https://www.intotheghibliworld.com
  - Google Maps
  - OpenTripMap Api
  
- # features
+ # Features
  
  ![picture1](static/img/bathhouse-interior.jpg)
  
