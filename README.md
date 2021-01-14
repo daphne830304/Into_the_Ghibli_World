@@ -51,7 +51,10 @@ https://www.intotheghibliworld.com
  
  ![locations](static/img/locationpage.jpg)
  
- TO be continued
+ TO BE CONTINUE
+ ![locations1]static/img/locationsfeature1.jpg
+ ![locations2]static/img/locationsfeature2.jpg
+ ![locations3]static/img/locationsfeature3.jpg
  
  
 
