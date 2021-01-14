@@ -32,7 +32,12 @@ https://www.intotheghibliworld.com
  
  # Features
  
- ![picture1](static/img/bathhouse-interior.jpg)
+ Landing Page
+ ![landing](static/img/landingpage.jpg)
+ 
+ Login Page
+ ![login](static/img/loginpage.jpg)
+ 
  
 
   
