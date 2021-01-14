@@ -78,6 +78,12 @@ def get_all_user():
         customers[u.email] = {"id":u.user_id,"email": u.email,"password": u.password}    
     return customers
 
+def check_user(email):
+    user = User.query.filter_by(email=email).first()
+    if user:
+        return (user.email, user.password, user.user_id)
+    return False
+
 def create_saved_movies(movie_id, user_id):
     user_id = int(user_id)
     saved_movie = Savedmovies(movie_id=movie_id,

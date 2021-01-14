@@ -193,10 +193,10 @@ def addlocation():
     if crud.create_addedlocation(user_id, name, lat, lng,
                               address, imgURL, place_id, movie_scene,
                               movie_id, Description):
-        flash('success')
+        # flash('success')
         return redirect('/')
     else:
-        flash('not added successfully')
+        # flash('not added successfully')
         return redirect('/login')
 
 
@@ -242,9 +242,8 @@ def adduser():
 
     all_users = crud.get_all_user()
     if email not in all_users:
-        flash('email not matched in database')
+        # flash('email not matched in database')
         # print('emailed not matched in database')
-
         return redirect('/login')
 
     elif email in all_users:
@@ -252,7 +251,7 @@ def adduser():
             session['logged_in_user_id'] = all_users[email]['id']
             # print(session)
             # print(session['logged_in_user_id'].keys())
-            flash('success')
+            # flash('success')
             return redirect('/')
         else:
             print('incorrect password')
@@ -262,12 +261,14 @@ def adduser():
     
     return redirect('/login')
 
-@app.route("/logout")
+@app.route("/api/logout")
 def process_logout():
+    print(session)
     session.pop('logged_in_user_id')
-    # print(session)
-    flash('You have logged out')
-    return redirect('/login')
+    message = "You have Logout"
+    success = False
+    print(session)
+    return jsonify({'success':success,'message':message})
 
 @app.route('/register', methods=['POST'])
 def register_process():
@@ -279,12 +280,12 @@ def register_process():
 	user = User.query.filter_by(email=email).first()
 
 	if user:
-		flash("This email address is already registered.")
+		# flash("This email address is already registered.")
 		return redirect('/login')
 	else:
 		crud.create_user(email,password)
 
-	flash(f"User {email} added.")
+	# flash(f"User {email} added.")
 	return redirect("/")
 
 
@@ -366,8 +367,51 @@ def get_user_data():
     
     return jsonify({'userfavs':user_fav_list})
 
+@app.route("/api/processlogin", methods=['POST'])
+def process_user():
+    res = request.get_json()
+    success = True
+    print(res)
+    print(res['email'])
+    print(res['password'])
+    
+    email = res['email']
+    password = res['password']
+    print('this is the user',crud.check_user(email))
+    message = None
+    if not crud.check_user(email):
+        success = False
+        message = "Sorry, We couldn't find an account associated with the email entered"
+        return jsonify({'success':success,'message':message})
+    elif crud.check_user(email):
+        user_email, user_pw, user_id = crud.check_user(email)
+        if password == user_pw:
+            print(user_email, user_pw, user_id)
+            message = 'Login Success'
+            session['logged_in_user_id'] = user_id
+            print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ this is the seesion',session)
+            return jsonify({'success':success,'message':message})
+        else:
+            success = False
+            message = 'Wrong password'
+            return jsonify({'success':success,'message':message})
+
+@app.route("/api/check_session")
+def check():
+    if session.get('logged_in_user_id',None):
+        print('_________________________________________________________________________',session)
+        return jsonify({'session':True})
+    else:
+        print('_________________________________________________________________________',None)
+        return jsonify({'session':False})
+    
 
 
+
+
+
+
+    
 if __name__ == "__main__":
     # app.debug = False
     connect_to_db(app)

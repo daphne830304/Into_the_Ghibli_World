@@ -9,7 +9,7 @@
       async defer
         type='text/jsx' src='static/js/map.jsx'>
       </script> -->
-      
+  
   <script  type='text/jsx' src='static/page/Addedlocationcontainer.jsx'>
   </script>
   <script  type='text/jsx' src='static/js/nearbyplaces.jsx'>
@@ -24,7 +24,11 @@
   </script>
   <script  type='text/jsx' src='static/page/UserProfile.jsx'>
   </script>
-  <script  type='text/jsx' src='static/page/Login.jsx'>
+  <!-- <script  type='text/jsx' src='static/page/Login.jsx'>
+  </script> -->
+  <script  type='text/jsx' src='static/page/ProcessLogin.jsx'>
+  </script> 
+  <script  type='text/jsx' src='static/page/Test.jsx'>
   </script>
   <script type='text/jsx' src='static/page/IndexPage.jsx'>
   </script>
@@ -32,7 +36,7 @@
   
 
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-33vlR6YV43rPhaQIU-vZAW0LZcS2qpc&libraries=places">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcoSWHg221QyCSZqTQOGI0J8nxNulMRsc&libraries=places">
   </script>
 
   <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> -->
@@ -60,16 +64,16 @@
     <input id="pac-input" type="text" placeholder="Enter a location" />
   </div> -->
  
-    {% if session.get('logged_in_user_id',None)  %}
+    <!-- {% if session.get('logged_in_user_id',None)  %}
     <div id='homepage-login' class='h1-homepage'>
       <div class='homepage-link'><a style="color:#e4c2a5" href="/addlocation">ADD LOCATIONS</a></div>
       <div class='homepage-link'><a style="color:#e4c2a5" href="/addedlocation">ADDED LOCATIONS</a></div>
       <div class='homepage-link'><a style="color:#e4c2a5" href="/userprofile">USER PROFILE</a></div>
       <div class='homepage-link'><a style="color:#e4c2a5" href="/logout">Log Out</a></div>
     </div>
-    {% else %}
-    <div class='logout-link'><a style="color:#329ea1;font-size: x-large;" href="/login">Log In</a></div> 
-    {% endif %}
+    {% else %} -->
+    <!-- <div class='logout-link'><a style="color:#329ea1;font-size: x-large;" href="/login">Log In</a></div>  -->
+    <!-- {% endif %} -->
   
 
   <div id='map'>

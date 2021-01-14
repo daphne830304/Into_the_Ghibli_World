@@ -227,10 +227,12 @@
   z-index:99}
 
 .navbarlink {
-  color:white
+  color:white;
+  font-size: 15px;
 }
 .home-navbarlink{
   color:lightcyan
+  
 }
 
 #homepage-txt {
@@ -340,6 +342,7 @@
 .homepage-link{
   float:left;
   padding-right: 2%;
+  color:#e4c2a5
 }
 .logout-link{
   font-family: 'Mansalva';
