@@ -32,7 +32,25 @@ https://www.intotheghibliworld.com
  
  # Features
  
- ![picture1](static/img/bathhouse-interior.jpg)
+ Landing Page
+ 
+ ![landing](static/img/landingpage.jpg)
+ 
+ Login Page
+ 
+ ![login](static/img/loginpage.jpg)
+ 
+ Movies Page
+ This page contains all the movies of Studio Ghibli. Movies data is from Studio Ghibli Api and the movie poster is from IMDB. For simplicity, all data were stored into the
+ database. As you hover onto the card, the movie details would show up. 
+ 
+ ![moveis](static/img/loginpage.jpg)
+ 
+ Locations Page
+ This page contains locations information associated with various movies. Data was collected from different sources. 
+ 
+ ![locaations](static/img/locationpage.jpg)
+ 
  
 
   
