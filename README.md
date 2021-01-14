@@ -9,3 +9,9 @@ Hello and Welcome! Daphne graduated from UC Davis in 2016 with a degree in Bioch
 # Deployment
 https://www.intotheghibliworld.com
 
+# Contents
+  # Tech Stack
+  # Features
+
+[click on this link](#Technology)
+# Technology 
