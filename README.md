@@ -15,16 +15,17 @@ https://www.intotheghibliworld.com
 
 
 # Technology 
-React
-JavaScript
-Python
-Flask
-PostgreSQL
-SQLAlchemy ORM
-HTML
-CSS
-React Router
-React Bootstrap
-Bootstrap
-Studio Ghibli Api
-Google Maps
+ - React
+ - JavaScript
+ - Python
+ - Flask
+ - PostgreSQL
+ - SQLAlchemy ORM
+ - HTML
+ - CSS
+ - React Router
+ - React Bootstrap
+ - Bootstrap
+ - Studio Ghibli Api
+ - Google Maps
+ - OpenTripMap Api
