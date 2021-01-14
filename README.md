@@ -10,8 +10,21 @@ Hello and Welcome! Daphne graduated from UC Davis in 2016 with a degree in Bioch
 https://www.intotheghibliworld.com
 
 # Contents
-  # Tech Stack
-  # Features
+  1. [Tech Stack](#Technology)
+  2. [Features](#Feature)
 
-[click on this link](#Technology)
+
 # Technology 
+React
+JavaScript
+Python
+Flask
+PostgreSQL
+SQLAlchemy ORM
+HTML
+CSS
+React Router
+React Bootstrap
+Bootstrap
+Studio Ghibli Api
+Google Maps
