@@ -11,6 +11,7 @@ https://www.intotheghibliworld.com
 
 # Contents
   1. [Tech Stack](#Technology)
+  2. [Features](#features)
 
 
 # Technology 
@@ -28,6 +29,10 @@ https://www.intotheghibliworld.com
  - Studio Ghibli Api
  - Google Maps
  - OpenTripMap Api
+ 
+ # features
+ 
+ ![picture1](static/img/bathhouse-interior.jpg)
  
 
   
