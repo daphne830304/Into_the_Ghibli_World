@@ -33,10 +33,10 @@ function GhibiliLocations(props) {
             <ReactBootstrap.Button className="nearby-buttons"onClick={ () => findnearbyrestaurants(props.lat, props.lng)}>
                 find nearby restaurants
             </ReactBootstrap.Button>
-            <ReactBootstrap.Accordion.Toggle as={ReactBootstrap.Button} variant="secondary" eventKey="0" style={{ backgroundColor: 'black' }}>
+            {/* <ReactBootstrap.Accordion.Toggle as={ReactBootstrap.Button} variant="secondary" eventKey="0" style={{ backgroundColor: 'black' }}>
                 Click to see desciprtion
-            </ReactBootstrap.Accordion.Toggle>
-              <ReactBootstrap.Accordion.Collapse eventKey="0">
+            </ReactBootstrap.Accordion.Toggle> */}
+              {/* <ReactBootstrap.Accordion.Collapse eventKey="0">
                 <ReactBootstrap.Card.Body>
                   <ReactBootstrap.Card.Body>
                     <ReactBootstrap.Card.Text className='location-body-text' id={props.location_id}>
@@ -46,8 +46,8 @@ function GhibiliLocations(props) {
   
                     </ReactBootstrap.Card.Text>
                   </ReactBootstrap.Card.Body>
-                </ReactBootstrap.Card.Body>
-              </ReactBootstrap.Accordion.Collapse>
+                </ReactBootstrap.Card.Body> */}
+              {/* </ReactBootstrap.Accordion.Collapse> */}
             
   
           </ReactBootstrap.Card.Body>

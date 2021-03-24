@@ -43,7 +43,10 @@ function GhibiliMoviesContainer() {
     $('#map')[0].style.display = 'none'
     fetch('/api/movies.json')
       .then((response) => response.json())
-      .then((data) => updateMovies(data.movies))
+      .then((data) => {
+        console.log(data);
+        updateMovies(data.movies)
+      })
   }, [])
 
   function addtofav(evt) {
@@ -65,7 +68,7 @@ function GhibiliMoviesContainer() {
 
   const movie_list = []; // part of state
   for (const movie of movies) {
-    // console.log(movie.title)
+    // console.log('this is the movie',movie.title)
     movie_list.push(
       < GhibiliMovies
         key={movie.id}
@@ -87,9 +90,24 @@ function GhibiliMoviesContainer() {
   //update the state, will cause a re-render + your movies will appear
 
   return (
-    <ReactBootstrap.CardDeck  className="ghibilimovie-card">
+    // <ReactBootstrap.CardDeck  className="ghibilimovie-card">
+    // <React.Fragment>
+    <ReactBootstrap.CardGroup className="ghibilimovie-card">
       {movie_list}
-    </ReactBootstrap.CardDeck>
+      </ReactBootstrap.CardGroup>
+      // </React.Fragment>
+    // </ReactBootstrap.CardDeck>
   );
 }
 
+
+
+// function Testingmoveis() {
+
+//   return (
+//     <div>
+//       hello
+//     </div>
+//   );
+
+// }
